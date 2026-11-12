@@ -10,13 +10,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="15"></RowDefinition>
+            <RowDefinition Height="15"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        
-        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left">
+        <TextBlock Name="FIOTB" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <TextBlock Name="RoleTB" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        <WrapPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
             <StackPanel Margin="5" Width="150" Height="15" Orientation="Vertical">
                 <TextBlock Name="CountTextBlock" VerticalAlignment="Top" FontSize="13"></TextBlock>
             </StackPanel>
@@ -41,7 +43,7 @@
             </StackPanel>
         </WrapPanel>
 
-        <ListView Name="ProductListView" Grid.Row="2">
+        <ListView Name="ProductListView" Grid.Row="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

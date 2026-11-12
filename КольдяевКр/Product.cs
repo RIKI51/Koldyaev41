@@ -37,15 +37,17 @@ namespace КольдяевКр
         {
             get
             {
-                if (this.ProductPhoto != null)
+
+                if(this.ProductPhoto != null)
                 {
                     return "Res/" + this.ProductPhoto;
                 }
-                return this.ProductPhoto;
+                return null;
             }
+                
         }
-
-
+      
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }

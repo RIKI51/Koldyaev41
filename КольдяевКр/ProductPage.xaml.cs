@@ -20,11 +20,37 @@ namespace КольдяевКр
     /// </summary>
     public partial class ProductPage : Page
     {
-        public ProductPage()
+        public ProductPage(User user)
         {
             InitializeComponent();
-            var currentProduct = Koldyaev41Entities.GetContext().Product.ToList();
+
+            if (user != null)
+            {
+                FIOTB.Text = "Вы авторизованы как: " + user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+
+                switch (user.UserRole)
+                {
+                    case 1:
+                        RoleTB.Text = "Роль: Клиент";
+                        break;
+                    case 2:
+                        RoleTB.Text = "Роль: Менеджер";
+                        break;
+                    case 3:
+                        RoleTB.Text = "Роль: Администратор";
+                        break;
+                }
+            }
+            else
+            {
+                FIOTB.Text = "Вы авторизованы как Гость";
+                RoleTB.Text = "Гость";
+            }
+
+            var currentProduct = Koldyaev41Entities1.GetContext().Product.ToList();
             ProductListView.ItemsSource = currentProduct;
+
+            
 
             ComboType.SelectedIndex = 0;
 
@@ -33,7 +59,7 @@ namespace КольдяевКр
         
         public void UpdateProduct()
         {
-            var currentProduct = Koldyaev41Entities.GetContext().Product.ToList();
+            var currentProduct = Koldyaev41Entities1.GetContext().Product.ToList();
 
             int totalCount = currentProduct.Count;
 
@@ -73,6 +99,7 @@ namespace КольдяевКр
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage());
+           
         }
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)

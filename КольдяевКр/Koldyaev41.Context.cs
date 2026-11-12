@@ -13,21 +13,21 @@ namespace КольдяевКр
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Koldyaev41Entities : DbContext
+    public partial class Koldyaev41Entities1 : DbContext
     {
-        private static Koldyaev41Entities _context;
+        private static Koldyaev41Entities1 _context;
 
-        public static Koldyaev41Entities GetContext()
+        public static Koldyaev41Entities1 GetContext()
         {
             if( _context == null )
             {
-                _context = new Koldyaev41Entities();
+                _context = new Koldyaev41Entities1();
             }
             return _context;
         }
 
-        public Koldyaev41Entities()
-            : base("name=Koldyaev41Entities")
+        public Koldyaev41Entities1()
+            : base("name=Koldyaev41Entities1")
         {
         }
     
